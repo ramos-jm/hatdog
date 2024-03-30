@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Text</title>
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+    <div id="example">
+        Climate change refers to the long-term shift in global weather patterns caused by human activities, particularly the release of greenhouse gases into the atmosphere. The main greenhouse gas is carbon dioxide, which is primarily produced by burning fossil fuels like coal, oil, and natural gas. The effects of climate change are already visible, including rising temperatures, melting glaciers and ice caps, and more frequent extreme weather events such as hurricanes, droughts, and floods. These changes significantly impact ecosystems, biodiversity, and human health, increasing the risk of respiratory diseases, food and water shortages, and the spread of infectious diseases. To address climate change, it is crucial to reduce greenhouse gas emissions through various measures, including increased use of renewable energy sources, greater energy efficiency, and improved transportation systems.
+        <br><br>
+        Climate change has likely led to the decline of some of Scotland's mountain plants, according to new research. Scientists said many of the species relied on snow cover remaining high on hills until late spring and even summer to ensure a moist environment. They also said plants that thrived on lower ground in warmer conditions were spreading to mountain habitats. Species found to be in decline include snow pearlwort, alpine lady-fern and alpine speedwell. The research by the Botanical Society of Britain and Ireland (BSBI) has taken 20 years to complete and has been published in the new Plant Atlas. Data used to produce the report included more than three million plant records of 2,555 species collected by hundreds of botanists across Scotland.
+    </div>
+
+    <script>
+        // Define the string example
+        var example = document.getElementById("example").innerHTML;
+
+        // Define an array of strings
+        var array = [
+            "Climate change refers to the long-term shift in global weather patterns caused by human activities",
+            "The main greenhouse gas is carbon dioxide",
+            "Climate change has likely led to the decline of some of Scotland's mountain plants"
+            // Add more sentences or phrases as needed
+        ];
+
+        // Highlight matching text
+        array.forEach(function(str) {
+            var regex = new RegExp('(' + str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+            example = example.replace(regex, '<span class="highlight">$1</span>');
+        });
+
+        // Update the content of the example div with highlighted text
+        document.getElementById("example").innerHTML = example;
+    </script>
+</body>
+</html>
